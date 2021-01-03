@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TNLEventAPI">
+    <output-path>$USER_HOME$/Desktop/Coding/APIs</output-path>
+    <root id="archive" name="TNLEventAPI.jar">
+      <element id="module-output" name="TNLEventAPI" />
+    </root>
+  </artifact>
+</component>
