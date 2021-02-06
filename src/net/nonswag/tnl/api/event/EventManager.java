@@ -47,7 +47,11 @@ public abstract class EventManager {
                     EventHandler annotation = method.getAnnotation(EventHandler.class);
                     if (annotation != null) {
                         if (!event.isCancelled() || annotation.ignoreCancelled()) {
-                            method.invoke(listener, event);
+                            if (method.getParameterCount() == 1) {
+                                if (method.getParameters()[0].getType().equals(event.getClass())) {
+                                    method.invoke(listener, event);
+                                }
+                            }
                         }
                     }
                 }
