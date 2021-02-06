@@ -43,12 +43,11 @@ public abstract class EventManager {
                 callEvent(new GenericEvent(event));
             }
             for (Listener listener : getRegisteredEvents()) {
-                Object object = listener.getClass().newInstance();
                 for (Method method : listener.getClass().getDeclaredMethods()) {
                     EventHandler annotation = method.getAnnotation(EventHandler.class);
                     if (annotation != null) {
                         if (!event.isCancelled() || annotation.ignoreCancelled()) {
-                            method.invoke(object, event);
+                            method.invoke(listener, event);
                         }
                     }
                 }
